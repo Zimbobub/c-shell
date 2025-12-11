@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "config.h"
-#include "shell.h"
 #include "input.h"
 
 
