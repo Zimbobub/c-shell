@@ -1,5 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+#include "config.h"
+
+
+
+char cmd_buffer[1024];
 
 
 int main(int argc, char **argv) {
@@ -21,9 +28,9 @@ void sh_loop(void) {
 
     do {
         printf("> ");
-        line = lsh_read_line();
-        args = lsh_split_line(line);
-        status = lsh_execute(args);
+        line = sh_read_line();
+        args = sh_split_line(line);
+        status = sh_execute(args);
 
         free(line);
         free(args);
