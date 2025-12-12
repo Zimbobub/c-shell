@@ -6,7 +6,7 @@
 
 
 char* sh_read_line() {
-    const size_t BLOCK_SIZE = 1024;
+    const size_t BLOCK_SIZE = 128;
 
     size_t capacity = BLOCK_SIZE;
     size_t len = 0;
@@ -43,6 +43,6 @@ char* sh_read_line() {
         return NULL;
     }
     // ensure null terminated
-    buffer[len] = '\0';
+    // buffer[len] = '\0';
     return buffer;
 }

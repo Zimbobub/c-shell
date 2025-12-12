@@ -3,9 +3,8 @@
 #include <string.h>
 
 #include "input.h"
+#include "args.h"
 
-
-char cmd_buffer[1024];
 
 
 int main(int argc, char **argv) {
@@ -28,12 +27,20 @@ void sh_loop(void) {
     do {
         printf("> ");
         line = sh_read_line();
-        printf("%s", line);
-        // args = sh_split_line(line);
+        printf("'%s'", line);
+        args = sh_split_line(line);
+
+
+        for (size_t i = 0; args[i] != NULL; i++) {
+            printf("\n0x%x.\n", args[i]);
+            // printf("%s\n", *args[i]);
+            printf("'%s'", line);
+        }
+        
         // status = sh_execute(args);
 
         free(line);
-        // free(args);
+        free(args);
     } while (status);
 }
 
